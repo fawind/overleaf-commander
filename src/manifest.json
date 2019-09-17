@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Overleaf Commander",
+  "description": "Shortcuts and commands for overleaf.com",
+  "version": "0.2.2",
+  "incognito": "split",
+  "content_scripts": [
+   {
+     "matches": ["https://www.overleaf.com/project/*"],
+     "js": ["{{MAIN_JS_OUT}}"]
+   }
+ ]
+}

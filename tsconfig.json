@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": false,
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  }
+}
