@@ -1,20 +1,21 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
-  entry: path.resolve(__dirname, 'src/main.ts'),
+  contentScript: path.resolve(__dirname, 'src/content.ts'),
   src: path.resolve(__dirname, 'src'),
   dist: path.resolve(__dirname, 'dist'),
 };
 
-const MAIN_JS_PLACEHOLDER = '{{MAIN_JS_OUT}}';
-const OUT_ENTRY_FILE = 'main.js';
+const CONTENT_SCRIPT_PLACEHOLDER = '{{CONTENT_SCRIPT_OUT}}';
+const CONTENT_SCRIPT_NAME = 'content.js';
 
 module.exports = {
-  entry: PATHS.entry,
+  entry: PATHS.contentScript,
   output: {
     path: PATHS.dist,
-    filename: OUT_ENTRY_FILE,
+    filename: CONTENT_SCRIPT_NAME,
   },
   resolve: {
     alias: {'@src': PATHS.src},
@@ -37,13 +38,17 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(PATHS.src, 'index.html'),
+      inject: true,
+    }),
     new CopyWebpackPlugin([
       {
         from: './src/manifest.json',
         to: 'manifest.json',
         transform(content) {
-          return content.toString().replace(MAIN_JS_PLACEHOLDER,
-              OUT_ENTRY_FILE);
+          return content.toString().replace(CONTENT_SCRIPT_PLACEHOLDER,
+              CONTENT_SCRIPT_NAME);
         }
       },
     ]),
