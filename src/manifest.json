@@ -1,9 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Overleaf Commander",
-  "description": "Shortcuts and commands for overleaf.com",
-  "version": "0.2.2",
-  "incognito": "split",
+  "description": "omnibar for overleaf.com",
+  "version": "0.0.2",
   "content_scripts": [
     {
       "matches": [
@@ -16,5 +15,10 @@
   ],
   "web_accessible_resources": [
     "app.js"
-  ]
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }

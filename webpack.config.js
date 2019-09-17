@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = {
   app: path.resolve(__dirname, 'src/App.tsx'),
   src: path.resolve(__dirname, 'src'),
+  res: path.resolve(__dirname, 'res'),
   dist: path.resolve(__dirname, 'dist'),
+  manifest: path.resolve(__dirname, 'src/manifest.json'),
+  contentscript: path.resolve(__dirname, 'src/contentscript.js'),
 };
 
 module.exports = {
@@ -40,8 +43,9 @@ module.exports = {
       inject: true,
     }),
     new CopyWebpackPlugin([
-      {from: './src/manifest.json',},
-      {from: './src/contentscript.js'}
+      {context: PATHS.res, from: '*'},
+      {from: PATHS.manifest},
+      {from: PATHS.contentscript}
     ]),
   ],
   devServer: {

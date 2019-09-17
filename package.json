@@ -30,6 +30,7 @@
     "watch": "webpack --mode development --watch",
     "build": "npm run clean && webpack --mode production",
     "clean": "rm -rf dist",
-    "lint": "./node_modules/.bin/tslint --project tsconfig.json"
+    "lint": "./node_modules/.bin/tslint --project tsconfig.json",
+    "release": "npm run build; zip -j ./dist/overleaf-commander.zip ./dist/*"
   }
 }
