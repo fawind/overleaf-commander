@@ -5,9 +5,16 @@
   "version": "0.2.2",
   "incognito": "split",
   "content_scripts": [
-   {
-     "matches": ["https://www.overleaf.com/project/*"],
-     "js": ["{{MAIN_JS_OUT}}"]
-   }
- ]
+    {
+      "matches": [
+        "https://www.overleaf.com/project/*"
+      ],
+      "js": [
+        "contentscript.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "app.js"
+  ]
 }

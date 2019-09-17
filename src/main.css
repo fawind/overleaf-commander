@@ -1,7 +1,11 @@
 .command-bar {
   position: fixed;
-  top: 10%;
-  left: 10%;
-  background-color: white;
-  color: black;
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2%;
+}
+
+.hidden {
+  display: none;
 }
