@@ -1,7 +1,7 @@
 import {Command, CommandCollector} from '@src/searchExtensions/commandExtension';
 import {withScope} from '@src/searchExtensions/angular';
 
-export interface FileItem {
+interface FileItem {
   id: string,
   name: string,
   selected: boolean,
@@ -9,11 +9,11 @@ export interface FileItem {
   children?: FileItem[],
 }
 
-export interface IdeControllerScope {
+interface IdeControllerScope {
   rootFolder: FileItem
 }
 
-export interface FileTreeEntityScope {
+interface FileTreeEntityScope {
   $emit: (event: string, elem: any) => void,
 }
 

@@ -6,7 +6,7 @@ import {CommandItem} from '@src/components/CommandItem';
 import {configure as configureHotKeys, GlobalHotKeys} from 'react-hotkeys';
 
 const KEY_MAP = {
-  TOGGLE: 'Control+Alt+]',
+  TOGGLE: 'Control+Alt+p',
   HIDE: 'Escape',
 };
 

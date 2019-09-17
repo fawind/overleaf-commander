@@ -12,4 +12,4 @@ const appRoot = document.createElement('div');
 appRoot.id = APP_ROOT_ID;
 document.body.appendChild(appRoot);
 ReactDOM.render(App, appRoot);
-console.log('Commander injected');
+console.log('Overleaf-Commander attached');
