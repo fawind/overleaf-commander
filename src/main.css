@@ -9,3 +9,7 @@
 .hidden {
   display: none;
 }
+
+.match {
+  font-weight: bold;
+}

@@ -4,7 +4,9 @@ import {githubExtension} from '@src/searchExtensions/githubExtension';
 import {OverleafApi, OverleafApiProvider} from '@src/searchExtensions/overleaf';
 
 const RESULT_LIMIT = 10;
-export const MATCH_KEY_PROP = 'title';
+const MATCH_KEY_PROP = 'title';
+const HIGHLIGHT_OPEN = '<span class="match">';
+const HIGHLIGHT_CLOSE = '</span>';
 
 export interface Command {
   title: string,
@@ -24,5 +26,8 @@ export const commandExtension: Omnibar.Extension<Command> = (query: string): Com
       .map(collector => collector(overleafApi))
       .reduce((a, b) => a.concat(b), []);
   const ranked = fuzzySort.go(query, commands, {key: MATCH_KEY_PROP, limit: RESULT_LIMIT});
-  return ranked.map(res => res.obj);
+  return ranked.map(result => {
+    const highlighted = fuzzySort.highlight(result, HIGHLIGHT_OPEN, HIGHLIGHT_CLOSE) || result.obj.title;
+    return {...result.obj, title: highlighted};
+  });
 };

@@ -34,8 +34,6 @@ export const CommandItem: Omnibar.ResultRenderer<Command> = (props: Props): JSX.
     styles.backgroundColor = '#ddd';
   }
   return (
-      <div style={styles}>
-        {props.item.title}
-      </div>
+      <div style={styles} dangerouslySetInnerHTML={{__html: props.item.title}}/>
   );
 };
