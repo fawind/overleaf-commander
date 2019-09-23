@@ -13,7 +13,7 @@ Install the current version from the [Chrome Web Store](https://chrome.google.co
 The project is still in early development. Please [report any issues](https://github.com/fawind/overleaf-commander/issues/new) you experience.
 
 ## Usage
-Toggle the omnibar using: <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>P</kbd>.
+Toggle the omnibar using: <kbd>CTRL</kbd>+<kbd>P</kbd>. You can change the keyboard shortcut on the Chrome Extensions page (`chrome://extensions/shortcuts`).
 
 ### Features
 * Search and open project files.

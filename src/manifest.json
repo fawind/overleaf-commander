@@ -16,6 +16,20 @@
   "web_accessible_resources": [
     "app.js"
   ],
+  "background": {
+    "scripts": [
+      "backgroundscript.js"
+    ],
+    "persistent": false
+  },
+  "commands": {
+    "toggle-omnibar": {
+      "description": "Toggle the Omnibar",
+      "suggested_key": {
+        "default": "Ctrl+P"
+      }
+    }
+  },
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

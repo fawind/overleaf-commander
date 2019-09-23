@@ -4,29 +4,23 @@ import Omnibar from 'omnibar';
 import {Command, commandExtension} from '@src/searchExtensions/commandExtension';
 import {CommandItem} from '@src/components/CommandItem';
 import {configure as configureHotKeys, GlobalHotKeys} from 'react-hotkeys';
-
-const KEY_MAP = {
-  TOGGLE: 'Control+Alt+p',
-  HIDE: 'Escape',
-};
+import {getKeyHandler} from '@src/chrome/commands';
 
 export const CommandBar: React.FunctionComponent<{}> = (): ReactElement => {
   const [isHidden, setHidden] = useState<boolean>(true);
-  const KEY_HANDLERS = {
-    TOGGLE: () => setHidden(currState => !currState),
-    HIDE: () => setHidden(true),
-  };
+  const onHide = () => setHidden(true);
+  const onToggle = () => setHidden(currIsHidden => !currIsHidden);
   const onAction = (item: Command | any | undefined) => {
-    if (!item) {
-      return;
+    if (item) {
+      item.action();
+      setHidden(true);
     }
-    item.action();
-    setHidden(true);
   };
+  const [keyMap, keyHandler] = getKeyHandler(onHide, onToggle);
   configureHotKeys({ignoreTags: []});
 
   return (
-      <GlobalHotKeys keyMap={KEY_MAP} handlers={KEY_HANDLERS}>
+      <GlobalHotKeys keyMap={keyMap} handlers={keyHandler}>
         <div className={'command-bar'}>
           {!isHidden ?
               <Omnibar

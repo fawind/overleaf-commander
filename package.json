@@ -4,6 +4,7 @@
   "repository": "git@github.com:fawind/minutes.git",
   "author": "fawind <windheuser.fabian@gmail.com>",
   "devDependencies": {
+    "@types/chrome": "0.0.88",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "awesome-typescript-loader": "^5.2.1",

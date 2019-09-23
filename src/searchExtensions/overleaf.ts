@@ -1,6 +1,7 @@
+import {isLocalPage} from '@src/chrome/commands';
+
 declare global {
   interface Window {
-    chrome?: any,
     angular: {
       element: (selector: string) => { scope: () => any },
     },
@@ -90,7 +91,7 @@ export class OverleafApiProvider {
 
   static get(): OverleafApi {
     if (this.instance === null) {
-      if (!window.chrome || !window.chrome.extension) {
+      if (isLocalPage()) {
         console.log('Running in local dev mode with mock Overleaf api');
         this.instance = new MockOverleafApi();
       } else {
