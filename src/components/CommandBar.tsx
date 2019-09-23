@@ -16,7 +16,10 @@ export const CommandBar: React.FunctionComponent<{}> = (): ReactElement => {
     TOGGLE: () => setHidden(currState => !currState),
     HIDE: () => setHidden(true),
   };
-  const onAction = (item: Command | any) => {
+  const onAction = (item: Command | any | undefined) => {
+    if (!item) {
+      return;
+    }
     item.action();
     setHidden(true);
   };

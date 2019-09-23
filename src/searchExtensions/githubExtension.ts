@@ -1,15 +1,9 @@
 import {Command, CommandCollector} from '@src/searchExtensions/commandExtension';
-import {withScope} from '@src/searchExtensions/angular';
+import {OverleafApi} from '@src/searchExtensions/overleaf';
 
-interface GithubSyncControllerScope {
-  openGithubSyncModal: () => void,
-}
-
-export const githubExtension: CommandCollector = (): Command[] => {
-  const githubScope = withScope<GithubSyncControllerScope>('GithubSyncController');
+export const githubExtension: CommandCollector = (overleafApi: OverleafApi): Command[] => {
   return [{
     title: 'Sync to Github',
-    _matchKey: 'github sync',
-    action: () => githubScope.openGithubSyncModal(),
+    action: () => overleafApi.openGithubSyncModal(),
   }];
 };
