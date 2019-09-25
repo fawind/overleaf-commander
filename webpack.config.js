@@ -8,8 +8,7 @@ const PATHS = {
   res: path.resolve(__dirname, 'res'),
   dist: path.resolve(__dirname, 'dist'),
   manifest: path.resolve(__dirname, 'src/manifest.json'),
-  contentscript: path.resolve(__dirname, 'src/contentscript.js'),
-  backgroundscript: path.resolve(__dirname, 'src/backgroundscript.js'),
+  staticDir: path.resolve(__dirname, 'src/static'),
 };
 
 module.exports = {
@@ -45,9 +44,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {context: PATHS.res, from: '*'},
+      {context: PATHS.staticDir, from: '*'},
       {from: PATHS.manifest},
-      {from: PATHS.contentscript},
-      {from: PATHS.backgroundscript},
     ]),
   ],
   devServer: {

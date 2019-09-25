@@ -13,7 +13,8 @@ Install the current version from the [Chrome Web Store](https://chrome.google.co
 ## Usage
 Toggle the omnibar using: <kbd>CTRL</kbd>+<kbd>P</kbd>.
 
-Depending on your system, you might need to set your shortcut manually on the Chrome Extensions page (`chrome://extensions/shortcuts`).
+To update the keyboard shortcut, click on the extension icon or navigate to `chrome://extensions/shortcuts`.
+Depending on your system, you might need to set an initial shortcut manually.
 
 ## Features
 * Search and open project files.

@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Overleaf Commander",
-  "description": "omnibar for overleaf.com",
-  "version": "0.1.0",
+  "description": "Omnibar for Overleaf.com",
+  "version": "0.1.1",
   "content_scripts": [
     {
       "matches": [
@@ -29,6 +29,9 @@
         "default": "Ctrl+P"
       }
     }
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
   },
   "icons": {
     "16": "icon16.png",
