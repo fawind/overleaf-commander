@@ -9,7 +9,7 @@ export const isLocalPage = (): boolean => {
   return window.hasOwnProperty('LOCAL_PAGE');
 };
 
-export const getKeyHandler = (onHide: () => void, onToggle: () => void): [KeyMap, KeyHandlerMap] => {
+export const addKeyHandler = (onHide: () => void, onToggle: () => void): [KeyMap, KeyHandlerMap] => {
   const keyMap: KeyMap = {HIDE: 'Escape'};
   const keyHandler: KeyHandlerMap = {HIDE: onHide};
 
