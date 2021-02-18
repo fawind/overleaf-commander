@@ -6,7 +6,7 @@ Omnibar for [Overleaf.com](https://www.overleaf.com). Allows quick file switchin
   <img src="https://user-images.githubusercontent.com/7422050/65421893-3b251700-de05-11e9-8da7-30dd207b2bce.png" width="600" alt="Overleaf Commander Preview"/>
 </p>
 
-## Installation
+## Installation [![Chrome Web Store](https://img.shields.io/chrome-web-store/users/bmlefjcamijlejhefedobjohbiekkemb)](https://chrome.google.com/webstore/detail/overleaf-commander/bmlefjcamijlejhefedobjohbiekkemb)
 
 Install the current version from the [Chrome Web Store](https://chrome.google.com/webstore/detail/overleaf-commander/bmlefjcamijlejhefedobjohbiekkemb).
 
