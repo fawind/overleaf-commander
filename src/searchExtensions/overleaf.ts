@@ -23,10 +23,7 @@ export interface FileEntry {
 }
 
 interface IdeControllerScope {
-  rootFolder: FileEntry
-}
-
-interface FileTreeEntityScope {
+  rootFolder: FileEntry,
   $emit: (event: string, elem: any) => void,
 }
 
@@ -40,13 +37,11 @@ function withScope<S>(controller: string): () => S {
 
 class AngularOverleafApi implements OverleafApi {
   private static IDE_CONTROLLER = 'IdeController';
-  private static FILE_TREE_CONTROLLER = 'FileTreeEntityController';
   private static GITHUB_SYNC_CONTROLLER = 'GithubSyncController';
   private static ENTITY_SELECTED_EVENT = 'entity:selected';
 
   private withIdeControllerScope = withScope<IdeControllerScope>(AngularOverleafApi.IDE_CONTROLLER);
-  private widthFileTreeControllerScope = withScope<FileTreeEntityScope>(AngularOverleafApi.FILE_TREE_CONTROLLER);
-  private widthGithubSyncControllerScope =
+  private withGithubSyncControllerScope =
       withScope<GithubSyncControllerScope>(AngularOverleafApi.GITHUB_SYNC_CONTROLLER);
 
   getFileTree(): FileEntry[] {
@@ -58,11 +53,11 @@ class AngularOverleafApi implements OverleafApi {
   }
 
   openFile(file: FileEntry) {
-    this.widthFileTreeControllerScope().$emit(AngularOverleafApi.ENTITY_SELECTED_EVENT, file);
+    this.withIdeControllerScope().$emit(AngularOverleafApi.ENTITY_SELECTED_EVENT, file);
   }
 
   openGithubSyncModal() {
-    this.widthGithubSyncControllerScope().openGithubSyncModal();
+    this.withGithubSyncControllerScope().openGithubSyncModal();
   }
 }
 
